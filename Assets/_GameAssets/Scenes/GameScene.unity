@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 53605418}
   - component: {fileID: 53605420}
   - component: {fileID: 53605422}
+  - component: {fileID: 53605423}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -247,6 +248,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1714a4662c8314045898cb56a836e686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &53605423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53605417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d61537db16533249b50a9a403fea7e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 7898748683610906872}
 --- !u!1 &220635301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5822140925183881489}
   m_Layer: 0
-  m_Name: root
+  m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2500,6 +2514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7410161607009253965}
+  - component: {fileID: 7898748683610906872}
   m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Untagged
@@ -2507,6 +2522,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &7898748683610906872
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898748683610906871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f4d84c15e5637f459f5b80cd4203531, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &8570910471178293200
 Transform:
   m_ObjectHideFlags: 0

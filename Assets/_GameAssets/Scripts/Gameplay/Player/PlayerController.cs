@@ -1,8 +1,10 @@
-using System.Runtime.CompilerServices;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public event Action OnPlayerJumped;
+
     [Header("References")]
     [SerializeField] private Transform _orientationTransform;
     [Header("Movement Settings")]
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _playerHeight;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _groundDrag;
-    
+
 
     private StateController _stateController;
     private Rigidbody _playerRigidbody;
@@ -66,7 +68,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player Moving");
         }
         // zıplama tuşuna basıldı mı ? - karakter zıplamaya uygun mu ? - şuanda yerde misin ? _-_ üçü birden true döndüğü durumda karakter zıplayacak.
-        else if (Input.GetKey(_jumpKey) && _canJump && IsGrounded()) 
+        else if (Input.GetKey(_jumpKey) && _canJump && IsGrounded())
         {
             _canJump = false;
             SetPlayerJumping();
@@ -77,7 +79,6 @@ public class PlayerController : MonoBehaviour
     {
         return _movementDirection.normalized;
     }
-
 
     private void SetStates()
     {
@@ -113,7 +114,7 @@ public class PlayerController : MonoBehaviour
         };
 
         _playerRigidbody.AddForce(_movementDirection.normalized * _movementSpeed * forceMultiplier, ForceMode.Force);
-       
+
     }
     private void SetPlayerDrag()
     {
@@ -123,7 +124,7 @@ public class PlayerController : MonoBehaviour
             PlayerState.Slide => _slideDrag,
             PlayerState.Jump => _airDrag,
             _ => _playerRigidbody.linearDamping
-         };
+        };
     }
     private void LimitPlayerSpeed()
     {
@@ -139,7 +140,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetPlayerJumping()
     {
-
+        OnPlayerJumped?.Invoke();
         _playerRigidbody.linearVelocity = new Vector3(_playerRigidbody.linearVelocity.x, 0f, _playerRigidbody.linearVelocity.z);
         _playerRigidbody.AddForce(transform.up * _jumpForce, ForceMode.Impulse); // impulse - ani kontrol
     }
@@ -155,5 +156,6 @@ public class PlayerController : MonoBehaviour
     {
         return _isSliding;
     }
+
 
 }
