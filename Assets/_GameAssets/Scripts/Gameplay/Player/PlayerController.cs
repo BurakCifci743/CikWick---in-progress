@@ -178,12 +178,17 @@ public class PlayerController : MonoBehaviour
     {
         _jumpForce += force;
         Invoke(nameof(ResetJumpForce), duration);
-     }
+    }
 
     private void ResetJumpForce()
     {
         _jumpForce = _startingJumpForce;
     }
+
+    public Rigidbody GetPlayerRigidBody()
+    {
+        return _playerRigidbody;
+    } 
 
 
     #endregion

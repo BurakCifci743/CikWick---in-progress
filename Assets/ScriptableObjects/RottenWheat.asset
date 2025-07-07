@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3b9a67d5bbc944a837b5619d9993cd, type: 3}
   m_Name: RottenWheat
   m_EditorClassIdentifier: 
-  _increaseDecreaseMultiplier: 15
+  _increaseDecreaseMultiplier: -25
   _resetBoostDuration: 5
