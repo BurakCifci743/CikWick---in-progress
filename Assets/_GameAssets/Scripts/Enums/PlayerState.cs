@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public enum PlayerState
 {
     Idle,
@@ -8,6 +6,5 @@ public enum PlayerState
     SlideIdle,
     Slide
 }
-
 
 
